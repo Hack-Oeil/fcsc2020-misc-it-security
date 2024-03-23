@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  it-security-101-www:
+    image: anssi/fcsc2020-misc-it-security-101-www:latest
+    ports:
+      - "80:8000"
+    user: "0:0"
+    volumes:
+      - /tmp/it-security-101_uploaded:/uploaded:rw
+      - /tmp/it-security-101_PoW:/PoW:rw
+
+  it-security-101-pdf:
+    image: anssi/fcsc2020-misc-it-security-101-pdf:latest
+    environment:
+      - PDF_PASSWORD=dqz1iEcg484lBafHo4nxxTG9vB6vYw4f
+    volumes:
+      - /tmp/it-security-101_uploaded:/uploaded:rw
+      - /tmp/it-security-101_processed:/processed:rw
